@@ -1,4 +1,5 @@
 import bit_protocol as bp
+import char_protocol as cp
 
 
 def bit_protocol_function():
@@ -8,16 +9,19 @@ def bit_protocol_function():
     show_result(bits_sequence,send,recive)
 
 def char_protocol_function():
-    pass
+    bits_sequence = 'STX,DLE,STX,ETX'
+    send = cp.encode(bits_sequence)
+    recive = cp.decode(send)
+    show_result(bits_sequence,send,recive)
 
 def show_result(original,send,recive):
-    print(f'Original = {bits_sequence}')
+    print(f'Original = {original}')
     print(f'Enviado = {send}')
     print(f'Recebido = {recive}')
 
 
 if __name__ == '__main__':
-    bit_protocol_function()
+    char_protocol_function()
 
 
 
